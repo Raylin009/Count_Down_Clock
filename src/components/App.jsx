@@ -6,7 +6,8 @@ class App extends React.Component {
         super(props);
         this.state = {
             date: new Date(),
-            end: new Date('May 24, 19 12:00:00')
+            end: new Date('Jun 2, 19 23:50:00'),
+            test: "this is a test string",
         };
         this.tick = this.tick.bind(this);
         this.timeLeft = this.timeLeft.bind(this);
@@ -43,7 +44,7 @@ class App extends React.Component {
         return(
             <div>
                 <h2>{this.timeLeft(this.state.date,this.state.end)}</h2>
-                <TimeDisplay />
+                <TimeDisplay test={this.state.test} />
             </div>
         )
     };
