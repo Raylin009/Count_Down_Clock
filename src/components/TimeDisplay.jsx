@@ -25,6 +25,7 @@ const TimeDisplay = ({stopTime}) => {
     const timeNow = new Date();
     const remainTime = stopTime.getTime() - timeNow.getTime();
     const days = Math.floor(remainTime / (1000 * 60 * 60 * 24));
+    const dateParser = time => Math.floor(time/ (1000 * 60 * 60 *24));
     const hours = Math.floor((remainTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const mins = Math.floor((remainTime % (1000 * 60 * 60)) / (1000 * 60));
     const secs = Math.floor((remainTime % (1000 * 60)) / 1000);
@@ -32,6 +33,7 @@ const TimeDisplay = ({stopTime}) => {
     return (
         <div>
             <h3>{days} Days {hours} hours {mins} minutes {secs} seconds...</h3>
+            <h4>{dateParser(remainTime)}</h4>
         </div>
     )
 }
