@@ -44,7 +44,7 @@ class App extends React.Component {
         return(
             <div>
                 <h2>{this.timeLeft(this.state.date,this.state.end)}</h2>
-                <TimeDisplay test={this.state.test} />
+                <TimeDisplay stopTime ={this.state.end} />
             </div>
         )
     };
