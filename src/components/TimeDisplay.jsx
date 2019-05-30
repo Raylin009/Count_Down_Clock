@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React from 'react';
+import {dateParser,hourParser,minParser,secParser,msParser} from '../../utility.js';
 // class TimeDisplay extends React.Component {
 //     constructor(props){
 //         super(props);
@@ -25,15 +25,14 @@ const TimeDisplay = ({stopTime}) => {
     const timeNow = new Date();
     const remainTime = stopTime.getTime() - timeNow.getTime();
     const days = Math.floor(remainTime / (1000 * 60 * 60 * 24));
-    const dateParser = time => Math.floor(time/ (1000 * 60 * 60 *24));
+    // const dateParser = time => Math.floor(time/ (1000 * 60 * 60 *24));
     const hours = Math.floor((remainTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const mins = Math.floor((remainTime % (1000 * 60 * 60)) / (1000 * 60));
     const secs = Math.floor((remainTime % (1000 * 60)) / 1000);
 
     return (
         <div>
-            <h3>{days} Days {hours} hours {mins} minutes {secs} seconds...</h3>
-            <h4>{dateParser(remainTime)}</h4>
+            <h3>TimeDisplay.jsx: {dateParser(remainTime)} Days {hourParser(remainTime)} hours {minParser(remainTime)} minutes {secParser(remainTime)} seconds...</h3>
         </div>
     )
 }
